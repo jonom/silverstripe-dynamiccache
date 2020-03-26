@@ -15,8 +15,8 @@
  * If a page should not be cached, then 
  */
 
-// If flush, bypass caching completely in order to delegate to Silverstripe's flush protection
-if(isset($_GET['flush'])) {
+// If flushing or changing mode, bypass caching completely in order to delegate to Silverstripe's protection
+if(isset($_GET['flush']) || isset($_GET['isDev']) || isset($_GET['isTest'])) {
 	require('../framework/main.php');
 	exit;
 }
